@@ -17,6 +17,9 @@ alias \
 # Colorize commands when possible.
 alias \
 	ls="ls -hN --color=auto --group-directories-first" \
+	ll="ls -lhaN --color=auto --group-directories-first" \
+	lll="ls -lhaN --color=auto --group-directories-first" \
+
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 	ccat="highlight --out-format=ansi"
@@ -25,16 +28,16 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
+	ga="git add -p" \
+	gaa="git add ." \
+	gs="git status" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
 	f="$FILE" \
 	e="$EDITOR" \
 	v="$EDITOR" \
-	p="sudo pacman" \
-	xi="sudo xbps-install" \
-	xr="sudo xbps-remove -R" \
-	xq="xbps-query"
+	pac="sudo pacman -Syu" \
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"

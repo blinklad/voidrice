@@ -1,0 +1,43 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}               % Consistent charater encoding and input 
+\usepackage{geometry}
+\geometry{verbose,tmargin=2.6cm,bmargin=2.6cm,lmargin=2.6cm,rmargin=2.6cm}% Page times times
+\usepackage{fancyhdr}
+\pagestyle{fancy}                         % Fancy fancy times
+\setcounter{secnumdepth}{4}			  	  % Subsubsections don't appear in TOC
+\setcounter{tocdepth}{4}                  % 4 level nesting in table of contents
+\usepackage{graphicx} 					  % Used for advanced figure and graphics
+\usepackage{setspace}
+\doublespacing{}  						  % Double line spacing w/ setspace
+\makeatletter  							  % Makes @ a character for macro purposes
+\makeatother							  % More macro purposes, unsure
+\usepackage{multicol} 					  % Multiple column documents, ie. newspaper
+\usepackage{changepage} 				  % Change style mid document
+\usepackage{enumitem}  					  % Better lists  
+\usepackage[bottom]{footmisc}
+\usepackage{lastpage}
+\usepackage{babel}
+\usepackage{blindtext}
+\setlist[itemize]{noitemsep, topsep=0pt}  % No gross whitespace
+\fancyhf{}								  % Fancy headers
+\pretolerance=10000						  % No freaking out over long references
+\tolerance=2000 						  % Same deal
+\emergencystretch=10pt					  % Stretch to accommodate references
+\cfoot{\thepage}						  % Manipulate page footers
+\usepackage{lipsum}				  		  % Blind text, fancy times
+
+% Commands and Macros
+\newcommand{\quotes}[1]{``#1``}
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
+
+% Subsections do not include parent numbering
+% \renewcommand{\thesubsection}{\arabic{subsection}}
+% \renewcommand{\thesubsubsection}{}
+
+% Useful snippets
+% \includegraphics[width=0.3\textwidth]{../images/foo.png}  Image template
+\newcommand*{\sectiondir}{sections/}
+\newcommand*{\imagedir}{images/}
