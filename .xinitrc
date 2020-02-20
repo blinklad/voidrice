@@ -9,6 +9,7 @@
 # here with the line below.
 
 [ -f ~/.xprofile ] && . ~/.xprofile
+[ -f ~/.Xresources ] && xrdb -merge -I$HOME ~/.Xresources
 
 # Your default LARBS WM is determined in your `~/.profile` on login.  Here we
 # run the proper command to run when the graphical environment starts.

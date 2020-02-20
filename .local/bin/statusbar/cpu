@@ -6,5 +6,9 @@ case $BLOCK_BUTTON in
 - Click to show intensive processes.
 - % is of single core." ;;
 esac
+CPU_T=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon*/temp2_input)
+CPU_TEMP=$(expr "$CPU_T" / 1000)
+CPU_F=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)
+CPU_FREQ=$(expr "$CPU_F" / 1000)
 
-sensors | awk '/Core 0/ {print $3}'
+printf " 💻 ${CPU_TEMP}°C ${CPU_FREQ}mhz  "

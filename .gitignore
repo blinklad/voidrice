@@ -1,0 +1,15 @@
+.config/nvim/plugged/*
+.config/pulse/*
+.config/nvim/.vimdid/
+Dev/*
+Documents/*
+Pictures/*
+.local/share/nvim/*
+.local/state/*
+.Xauthority
+.bash_logout
+.cache/
+.fontconfig/
+.gitconfig
+.pki/
+.sc-iminfo

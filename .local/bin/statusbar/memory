@@ -6,4 +6,8 @@ case $BLOCK_BUTTON in
 - Click to show memory hogs." ;;
 esac
 
-free -h | awk '/^Mem:/ {print $3 "/" $2}'
+
+# Used and total memory
+MEMUSED=$(free -h | awk '(NR == 2) {print $3}')
+MEMTOT=$(free -h |awk '(NR == 2) {print $2}')
+printf " RAM ${MEMUSED}/${MEMTOT}  "

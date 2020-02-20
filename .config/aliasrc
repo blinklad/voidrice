@@ -31,6 +31,8 @@ alias \
 	ga="git add -p" \
 	gaa="git add ." \
 	gs="git status" \
+	gc="git checkout" \
+	gac="git add . && git commit" \
 	trem="transmission-remote" \
 	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
@@ -38,6 +40,7 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	pac="sudo pacman -Syu" \
+	sys="sudo systemctl" \
 
 # This alias is important. It enables the `pauseallmpv` command.
 alias mpv="mpv --input-ipc-server=/tmp/mpvsoc$(date +%s)"

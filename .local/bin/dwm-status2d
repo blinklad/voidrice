@@ -1,0 +1,82 @@
+#!/usr/bin/env dash
+# vim: ft=sh
+
+interval=1
+
+pulseaudio() {
+VOL=$(pamixer --get-volume-human | tr -d '%')
+printf "%s" "$SEP1"
+    if [ "$VOL" = "muted" ] || [ "$VOL" -eq 0 ]; then
+        printf "^c#cc241d^🔇^d^"
+    elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
+        printf "^c#cc241d^🔈 %s%%^d^" "$VOL"
+    elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
+        printf "^c#d79921^🔉 %s%%^d^" "$VOL"
+    else
+        printf "^c#b8bb26^🔊 %s%%^d^" "$VOL"
+    fi
+}
+alsa() {
+VOL=$(amixer get -c 2 Headphone | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
+printf "%s" "$SEP1"
+    if [ "$VOL" -eq 0 ]; then
+        printf "^c#cc241d^🔇^d^"
+    elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
+        printf "^c#cc241d^🔈 %s%%^d^" "$VOL"
+    elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
+        printf "^c#d79921^🔉 %s%%^d^" "$VOL"
+    else
+        printf "^c#b8bb26^🔊 %s%%^d^" "$VOL"
+    fi
+}
+network() {
+CONNAME=$(nmcli -a | grep 'Wired connection' | awk 'NR==1{print $1}')
+if [ "$CONNAME" = "" ]; then
+    CONNAME=$(nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -c 5-)
+fi
+PRIVATE=$(nmcli -a | grep 'inet4 192' | awk '{print $2}')
+PUBLIC=$(curl -s https://ipinfo.io/ip)
+
+printf "%s" "$SEP1"
+printf "🌐 %s (%s^c#928374^:^d^^c#fb4934^%s^d^)" "^c#d3869b^$CONNAME^d^" "$PRIVATE" "$PUBLIC"
+}
+
+# for weather
+LOCATION='Tasmania'
+while true; do
+    curl -s "https://wttr.in/${LOCATION}?format=1" > $HOME/.cache/Weather.tmp
+    sleep 300
+done &
+
+while true; do
+    # Network Interface Name
+    interface=$(ip route get 8.8.8.8 2>/dev/null| awk '{print $5}')
+
+    # Time
+    LOCALTIME=$(date +%a\ %d\ %b\ %H:%M)
+
+    # CPU
+    CPU_T=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon6/temp2_input)
+    CPU_TEMP=$(expr "$CPU_T" / 1000)
+    CPU_F=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq)
+    CPU_FREQ=$(expr "$CPU_F" / 1000)
+
+    # GPU
+    # GPU_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)
+
+    # Weather
+    WEATHER=$(cat $HOME/.cache/Weather.tmp)
+
+    # Used and total memory
+    MEMUSED=$(free -h | awk '(NR == 2) {print $3}')
+    MEMTOT=$(free -h |awk '(NR == 2) {print $2}')
+
+    # Used and total storage in / and /home (rounded to 1024B)
+    ROOTUSED=$(df -h | grep '/$' | awk '{print $3}')
+    ROOTTOT=$(df -h | grep '/$' | awk '{print $2}')
+    HOMEUSED=$(df -h | grep '/home$' | awk '{print $3}')
+    HOMETOT=$(df -h | grep '/home$' | awk '{print $2}')
+
+    # STATUS
+    xsetroot -name " ^c#b8bb26^$(network) ^c#928374^|^d^ $(alsa) ^c#928374^|^d^ $WEATHER ^c#928374^|^d^ : ${HOMEUSED}/${HOMETOT} ^c#928374^|^d^ /: ${ROOTUSED}/${ROOTTOT} ^c#928374^|^d^ RAM ${MEMUSED}/${MEMTOT} ^c#928374^|^d^ ^c#b8bb26^GPU ${GPU_TEMP}°C^d^ ^c#928374^|^d^ ^c#fabd2f^ ${CPU_FREQ}Mhz ${CPU_TEMP}°C^d^ ^c#928374^|^d^ $(bat) ^c#928374^|^d^ $LOCALTIME "
+done &

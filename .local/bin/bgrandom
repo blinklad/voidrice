@@ -1,0 +1,8 @@
+#!/bin/sh
+
+BACKGROUND_DIR="$HOME/Pictures/Backgrounds"
+while true; do
+	RANDOM_PIC=$(ls $BACKGROUND_DIR | shuf | head -n1)
+	setbg $BACKGROUND_DIR/$RANDOM_PIC
+    sleep 1800
+done
