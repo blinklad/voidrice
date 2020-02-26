@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE khotnewstuff3>
+<hotnewstuffregistry>
+ <stuff category="357">
+  <name>Darkness</name>
+  <providerid>https://api.kde-look.org/ocs/v1/</providerid>
+  <author>fregl</author>
+  <homepage>https://store.kde.org/p/1167733</homepage>
+  <licence></licence>
+  <version>1.0</version>
+  <rating>50</rating>
+  <downloads>457</downloads>
+  <installedfile>/home/evan/.local/share/parley/themes//darkness.svgz</installedfile>
+  <installedfile>/home/evan/.local/share/parley/themes//darkness.desktop</installedfile>
+  <installedfile>/home/evan/.local/share/parley/themes//darkness_theme_preview.jpg</installedfile>
+  <installedfile>/home/evan/.local/share/parley/themes//</installedfile>
+  <id>1167733</id>
+  <releasedate>2010-06-25</releasedate>
+  <summary>A dark theme where you have to get the answers right in order do find the diamonds!&lt;br />
+&lt;br />
+Created by Jarle Richard Akselsen</summary>
+  <changelog></changelog>
+  <preview>https://cn.opendesktop.org/cache/100x100-0/img//hive/content-pre1/126707-1.jpg</preview>
+  <previewBig>https://cn.opendesktop.org/cache/770x540-0/img//hive/content-pre1/126707-1.jpg</previewBig>
+  <payload>https://dllb2.pling.com/api/files/download/j/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjE0ODM5NTUzMDMiLCJvIjoiMSIsInMiOiJmZTMxNjg3M2RiMDM3Y2M4OTI2YjY2ZjM2OGYyNDU3OTU5MWRmZGQ4OWFkMGUyYmVjNzFhMTQ1N2I1N2RiYWFjZjNiNzAzYTU3YjEzOGVkZTllMGI1ZGU4OThiYzQ1NTUyNDMyYTNhY2Q3ZTQ5YzNiMzc5Yjc4NjUwZDRhNjRlNSIsInQiOjE1ODIzOTExNjcsInN0ZnAiOm51bGwsInN0aXAiOiIxMjEuNDUuMTY2LjIyMCJ9.sL5pZLsc60WOARPuY6dHqFqSyP40_af_pbtkUSFw9QY/126707-darkness.tbz2</payload>
+  <tags>addon</tags>
+  <status>installed</status>
+ </stuff>
+</hotnewstuffregistry>

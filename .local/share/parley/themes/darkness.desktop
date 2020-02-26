@@ -1,0 +1,20 @@
+[KGameTheme]
+Name=Darkness
+Name[en_GB]=Darkness
+Name[nb]=Mørket
+Name[x-test]=xxDarknessxx
+Description=Collect the gems.
+Description[en_GB]=Collect the gems.
+Description[nb]=Samle edelstener.
+Description[x-test]=xxCollect the gems.xx
+VersionFormat=1
+Author=Jarle Richard Akselsen
+AuthorEmail=jarle.r.akselsen@gmail.com
+Type=SVG
+FileName=darkness.svgz
+Preview=darkness_theme_preview.jpg
+X-Parley-Font-Color-Start=ffffff
+X-Parley-Font-Color-Outer=ffffff
+X-Parley-Font-Color-Central=ffffff
+X-Parley-Font-Color-Correct=00c000
+X-Parley-Font-Color-Wrong=bf0303

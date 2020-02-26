@@ -1,0 +1,2 @@
+#!/bin/dash
+vboxsdl --startvm Windows10Home --nofstoggle
