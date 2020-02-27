@@ -8,6 +8,8 @@ vv	~/Videos
 cf	~/.config
 sc	~/.local/bin
 sr	~/.local/src
+ss	~/.local/share
 mn	/mnt
 dr  ~/Dev/Repo
 un  ~/Documents/Uni
+wk  ~/Documents/Work

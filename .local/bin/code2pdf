@@ -1,0 +1,21 @@
+#! /bin/dash
+# vim: ft=sh
+# Converts source code into a pretty pdf.
+# Line numbers, syntax highlighting and landscape orientation by default.
+
+code=$1
+temp=$(echo $code | cut -f 1 -d '.') # temp
+
+
+# ps2pdf doesn't work well in pipes
+#--highlight=java \
+$(enscript \
+	--output=$temp \
+	--line-numbers \
+	--no-header \
+	--landscape \
+	--color=1 \
+	--font="Courier22" \
+	--silent $code || exit) \
+&& ps2pdf $temp \
+&& rm $temp

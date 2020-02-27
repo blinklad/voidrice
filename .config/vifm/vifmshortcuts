@@ -35,6 +35,10 @@ map gsr :cd ~/.local/src<CR>
 map tsr <tab>:cd ~/.local/src<CR><tab>
 map Msr <tab>:cd ~/.local/src<CR><tab>:mo<CR>
 map Ysr <tab>:cd ~/.local/src<CR><tab>:co<CR>
+map gss :cd ~/.local/share<CR>
+map tss <tab>:cd ~/.local/share<CR><tab>
+map Mss <tab>:cd ~/.local/share<CR><tab>:mo<CR>
+map Yss <tab>:cd ~/.local/share<CR><tab>:co<CR>
 map gmn :cd /mnt<CR>
 map tmn <tab>:cd /mnt<CR><tab>
 map Mmn <tab>:cd /mnt<CR><tab>:mo<CR>
@@ -47,6 +51,10 @@ map gun :cd ~/Documents/Uni<CR>
 map tun <tab>:cd ~/Documents/Uni<CR><tab>
 map Mun <tab>:cd ~/Documents/Uni<CR><tab>:mo<CR>
 map Yun <tab>:cd ~/Documents/Uni<CR><tab>:co<CR>
+map gwk :cd ~/Documents/Work<CR>
+map twk <tab>:cd ~/Documents/Work<CR><tab>
+map Mwk <tab>:cd ~/Documents/Work<CR><tab>:mo<CR>
+map Ywk <tab>:cd ~/Documents/Work<CR><tab>:co<CR>
 map bf :e ~/.config/files<CR>
 map bd :e ~/.config/directories<CR>
 map bw :e ~/.config/bookmarks<CR>

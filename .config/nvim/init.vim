@@ -156,7 +156,7 @@ endif
 	nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	map <leader>c :w! \| !compiler <c-r>%<CR>
+	nnoremap <leader>b :!compiler %<CR>
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
@@ -363,13 +363,14 @@ set fillchars=fold:\
 " Single line and function header respectively
 inoremap <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 map 	 <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
-inoremap <leader>c <Esc>i/**<CR>* <++><CR>* Pre-condition: <++><CR>* Post-condition: <++><CR>*<CR>*/<ESC>?<++><CR>nn"_c4l
+inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
 
 " Comment style
 autocmd FileType *.c inoremap   <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 autocmd FileType *.c inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
 autocmd FileType *.c map 	 	<leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 autocmd FileType *.c map 			<leader>B <Esc>:wall<CR>:Make<CR>
+
 " Navigating between buffers
 nnoremap <leader><leader> <c-^>
 inoremap <leader><leader> <c-^>
