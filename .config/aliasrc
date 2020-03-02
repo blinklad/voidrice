@@ -6,6 +6,7 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
 	sudo="sudo -A"
+	se="sudo nvim"
 	bat="cat /sys/class/power_supply/BAT?/capacity" \
 	pwr="sudo powertop"
 	cp="cp -iv" \
@@ -52,4 +53,5 @@ alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	weath="less -S ~/.local/share/weatherreport" \
-	z="zathura"
+	z="zathura" \
+	gdb="gdb -ex 'set print pretty on'"

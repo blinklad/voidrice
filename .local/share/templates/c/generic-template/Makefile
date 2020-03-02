@@ -27,11 +27,12 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 	@echo "Compiled "$<" successfully!"
 
-# Run make run to execute binary
 run:
-	@st -e 'gdb $(BINDIR)/$(TARGET)'
+	@gdb $(BINDIR)/$(TARGET)
 
-# Run make clean to clean up junk
+memcheck:
+	@valgrind $(BINDIR)/$(TARGET)
+
 clean:
 	@rm -f $(wildcard $(OBJDIR)/*.o)
 	@rm -f $(wildcard $(BINDIR)/*)

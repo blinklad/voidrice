@@ -473,4 +473,44 @@
       </metadata>
     </info>
   </bookmark>
+  <bookmark href="file:///home/evan/Documents/Uni/KIT202/tutorial/tutorial-1/Tutorial01.pdf" added="2020-03-02T03:58:27Z" modified="2020-03-02T03:58:28Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-03-02T03:58:28Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/evan/Documents/Uni/KIT202/tutorial/tutorial-1/Tute01_HTML.zip" added="2020-03-02T03:58:57Z" modified="2020-03-02T03:58:57Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-03-02T03:58:57Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/evan/Documents/Uni/KIT202/tutorial/tutorial-1/Tute01_CSS.zip" added="2020-03-02T03:59:10Z" modified="2020-03-02T03:59:10Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-03-02T03:59:10Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/evan/Documents/Uni/HTL101/Reading/epdf.pub_reading-latin-text.pdf" added="2020-03-02T04:02:36Z" modified="2020-03-02T04:02:37Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-03-02T04:02:37Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
 </xbel>

@@ -1,0 +1,42 @@
+#!/bin/dash
+# vim:filetype=sh
+#
+# http://github.com/mitchweaver/bin
+#
+# open and edit a file from given locations with dmenu
+#
+
+# folders here will be indexed and sent to dmenu
+folders="${HOME}/.config/nvim/init.vim \
+		 ${HOME}/.config/zsh/* \
+		 ${HOME}/.config/aliasrc \
+		 ${HOME}/.config/directories \
+		 ${HOME}/.config/shortcutrc \
+		 ${HOME}/.config/ranger/* \
+         ${HOME}/.xinitrc \
+         ${HOME}/.Xresources \
+         ${HOME}/.zprofile \
+         ${HOME}/.tmux.conf \
+         ${HOME}/.profile \
+         ${HOME}/.local/bin/* \
+         ${HOME}/.local/src/* \
+		 "
+
+set -- $(\
+    for f in $folders ; do
+        ls -L "$f"
+    done | sed 's/\/.*//g' | sort -u | dmenu -fn "JetbrainsMono Nerd Font:style=Medium:size=11" -sb "#005577" -sf "#b8bb26" -nf "#98971a" -nb "#1d2021" -i -p 'Edit:'\
+)
+
+edit() { st -e $EDITOR "$1" ; }
+
+if [ -f "$1" ] ; then
+    edit "$1"
+elif [ "$1" ] ; then
+    for f in $folders ; do
+        if [ -f "$f/$1" ] ; then
+            edit "$f/$1"
+            break
+        fi
+    done
+fi
