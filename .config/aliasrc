@@ -5,17 +5,17 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-	sudo="sudo -A"
-	se="sudo nvim"
+	sudo="sudo -A" \
+	se="sudo nvim" \
 	bat="cat /sys/class/power_supply/BAT?/capacity" \
-	pwr="sudo powertop"
+	pwr="sudo powertop" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -v" \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata --restrict-filenames -i -w" \
 	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+	ffmpeg="ffmpeg -hide_banner" \
 
 # Colorize commands when possible.
 alias \
@@ -54,4 +54,5 @@ alias \
 	ref="shortcuts >/dev/null; source ~/.config/shortcutrc" \
 	weath="less -S ~/.local/share/weatherreport" \
 	z="zathura" \
-	gdb="gdb -ex 'set print pretty on'"
+	gdb="gdb -ex 'set print pretty on'" \
+	srv="python2 -m SimpleHTTPServer 8000" \

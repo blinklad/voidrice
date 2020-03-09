@@ -1,6 +1,7 @@
 .config/nvim/plugged/*
 .config/pulse/*
 .config/nvim/.vimdid/
+.config/nordvpn/*
 Dev/*
 Documents/*
 Pictures/*
