@@ -2,6 +2,8 @@
 .config/pulse/*
 .config/nvim/.vimdid/
 .config/nordvpn/*
+.config/syncthing/*
+.config/zsh/.zcompdump
 Dev/*
 Documents/*
 Pictures/*
@@ -34,3 +36,4 @@ transfer/*
 .local/share/password-store/*
 .local/share/recently-used.xbel
 .local/share/zathura/*
+.local/share/ranger/bookmarks
