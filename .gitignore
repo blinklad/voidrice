@@ -5,6 +5,7 @@
 .config/syncthing/*
 .config/zsh/.zcompdump
 .config/dconf/user
+.config/QTProject.conf
 Dev/*
 Documents/*
 Pictures/*
