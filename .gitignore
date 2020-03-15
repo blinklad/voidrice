@@ -2,6 +2,7 @@
 .config/pulse/*
 .config/nvim/.vimdid/
 .config/nordvpn/*
+.config/syncthing/*
 Dev/*
 Documents/*
 Pictures/*
