@@ -4,6 +4,7 @@
 .config/nordvpn/*
 .config/syncthing/*
 .config/zsh/.zcompdump
+.config/dconf/user
 Dev/*
 Documents/*
 Pictures/*
@@ -37,3 +38,5 @@ transfer/*
 .local/share/recently-used.xbel
 .local/share/zathura/*
 .local/share/ranger/bookmarks
+.local/share/recently-used.xbel
+.python_history
