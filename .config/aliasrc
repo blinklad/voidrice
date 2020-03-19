@@ -56,3 +56,4 @@ alias \
 	z="zathura" \
 	gdb="gdb -ex 'set print pretty on'" \
 	srv="python2 -m SimpleHTTPServer 8000" \
+	tidy="tidy -i -m -w 160 -ashtml -utf8" \
