@@ -81,7 +81,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-colorscheme base16-atelier-lakeside
+colorscheme base16-google-dark
 
 " =============================================================================
 "  Completion
