@@ -56,3 +56,5 @@ alias \
 	z="zathura" \
 	gdb="gdb -ex 'set print pretty on'" \
 	srv="python2 -m SimpleHTTPServer 8000" \
+	memchk="make clean && make && make memcheck" \
+	run="make clean && make && make run" \

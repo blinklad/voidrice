@@ -41,3 +41,6 @@ transfer/*
 .local/share/ranger/bookmarks
 .local/share/recently-used.xbel
 .python_history
+.config/chromium/*
+Music/*
+.asoundrc__
