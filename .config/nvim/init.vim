@@ -81,7 +81,7 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
-colorscheme base16-atelier-lakeside
+colorscheme base16-google-dark
 
 " =============================================================================
 "  Completion
@@ -122,7 +122,6 @@ endfunction
 
 let g:DiagnosticsHidden = 0
 
-nnoremap <Leader>h :call ToggleDiagnostics()<cr>
 " from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
@@ -156,7 +155,7 @@ endif
 	nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-	nnoremap <leader>b :!compiler %<CR>
+nnoremap <leader>b :!compiler %<CR>
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
@@ -283,12 +282,6 @@ set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 " ; as :
 nnoremap ; :
 
-" Move between splits
-nnoremap <leader>l <C-l>
-nnoremap <leader>j <C-j>
-nnoremap <leader>k <C-k>
-nnoremap <leader>h <C-h>
-
 " Find and replace
 nnoremap S :%s//g<Left><left>
 
@@ -369,8 +362,16 @@ inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
 autocmd FileType *.c inoremap   <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 autocmd FileType *.c inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
 autocmd FileType *.c map 	 	<leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
-autocmd FileType *.c map 			<leader>B <Esc>:wall<CR>:Make<CR>
+autocmd FileType *.c *.tex map <leader>b <Esc>:wall<CR>:Make<CR>
+autocmd FileType *.tex map <leader>b <Esc>:wall<CR>:Make<CR>
 
 " Navigating between buffers
 nnoremap <leader><leader> <c-^>
 inoremap <leader><leader> <c-^>
+
+" =============================================================================
+"  HTML
+" =============================================================================
+
+" Tidy file
+autocmd FileType html map <leader>h :w!<bar> :!tidy -q -i -m -w 140 -ashtml -utf8 %<CR>:e!<CR>
