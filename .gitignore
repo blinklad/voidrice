@@ -4,6 +4,7 @@
 .config/nordvpn/*
 .config/syncthing/*
 .config/zsh/.zcompdump
+.config/dconf/user
 .config/QTProject.conf
 .config/dconf/*
 Dev/*
@@ -39,3 +40,8 @@ transfer/*
 .local/share/recently-used.xbel
 .local/share/zathura/*
 .local/share/ranger/bookmarks
+.local/share/recently-used.xbel
+.python_history
+.config/chromium/*
+Music/*
+.asoundrc__
