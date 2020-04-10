@@ -323,9 +323,9 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+" ctrl-h and ctrl-l move between buffers
+nnoremap <c-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
 
 " Move by line
 nnoremap j gj
