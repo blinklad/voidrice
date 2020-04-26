@@ -292,6 +292,7 @@ noremap <leader>p :read !xsel --clipboard --output<cr>
 noremap <leader>c :w !xsel -ib<cr><cr>
 set clipboard=unnamedplus
 
+noremap <C-n> :NERDTreeToggle<CR>
 " <leader>s for Rg search
 noremap <leader>s :Rg<CR>
 let g:fzf_layout = { 'down': '~20%' }
