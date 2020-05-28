@@ -16,6 +16,7 @@ export FILE="ranger"
 export STATUSBAR="${LARBSWM}blocks"
 export GOPATH="$HOME/.local/share/go"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export SCRATCHCOMMAND="$HOME/.local/bin/scratch_command"
 
 # ~/ Clean-up:
 #export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.

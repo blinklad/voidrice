@@ -28,10 +28,10 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.c
 	@echo "Compiled "$<" successfully!"
 
 run:
-	@gdb $(BINDIR)/$(TARGET)
+	@gdb -tui $(BINDIR)/$(TARGET)
 
 memcheck:
-	@valgrind $(BINDIR)/$(TARGET)
+	@valgrind --leak--check=full $(BINDIR)/$(TARGET)
 
 clean:
 	@rm -f $(wildcard $(OBJDIR)/*.o)

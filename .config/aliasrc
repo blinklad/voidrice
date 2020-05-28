@@ -1,4 +1,4 @@
-#!/bin/sh
+#s!/bin/sh
 
 # Use neovim for vim if present.
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
@@ -43,6 +43,7 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	pac="sudo pacman -Syu" \
+	yay="yay -Syu" \
 	sys="sudo systemctl" \
 
 # This alias is important. It enables the `pauseallmpv` command.
