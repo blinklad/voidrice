@@ -12,39 +12,29 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/goyo.vim'
-Plug 'jreybert/vimagit'
 Plug 'vimwiki/vimwiki'
 Plug 'bling/vim-airline'
 Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-sensible'
-Plug 'mhinz/vim-startify'
 Plug 'romainl/vim-cool'
 
 " GUI enhancements
 Plug 'w0rp/ale'
 Plug 'machakann/vim-highlightedyank'
-Plug 'andymass/vim-matchup'
 Plug 'chriskempson/base16-vim'
 " Fuzzy finder
-Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf.vim'
 
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-jp/vim-cpp'
+Plug 'airblade/vim-rooter'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
 
 " Syntactic language support
-Plug 'cespare/vim-toml'
-Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'} node is gross
-
-" Plug 'blinklad/vim-rand-colour'
 call plug#end()
 
 set mouse=a
@@ -53,6 +43,8 @@ set clipboard+=unnamedplus
 syntax sync minlines=256
 syntax sync maxlines=512
 set regexpengine=1
+set nowrap
+
 
 " =============================================================================
 "  Colors
@@ -76,13 +68,17 @@ endif
 
 set background=dark
 set termguicolors
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
-colorscheme base16-google-dark
+colorscheme base16-atlas
 
+" =============================================================================
+"  Plugin Specific
+" =============================================================================
+
+" Ale
+" TODO.
+nnoremap <S-h> :ALEPrevious<CR>
+nnoremap <S-l> :ALENext<CR>
 " =============================================================================
 "  Completion
 " =============================================================================
@@ -91,36 +87,6 @@ colorscheme base16-google-dark
 set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" Use <c-.> to trigger completion.
-"inoremap <silent><expr> <c-.> coc#refresh()
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-"noremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-function! ToggleDiagnostics()
-  if g:DiagnosticsHidden
-    LanguageClientStart
-    let g:DiagnosticsHidden = 0
-  else
-    LanguageClientStop
-    let g:DiagnosticsHidden = 1
-  endif
-endfunction
-
-let g:DiagnosticsHidden = 0
 
 " from http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 if executable('ag')
@@ -137,7 +103,6 @@ endif
 	filetype plugin on
 	syntax on
 	set encoding=utf-8
-	set number relativenumber
 " Quick-save
 	nmap <leader>w :w<CR>
 " Enable autocompletion:
@@ -200,7 +165,6 @@ set encoding=utf-8
 set scrolloff=2
 set noshowmode
 set hidden " Required for operations modifying multiple buffers (eg. rename)
-set wrap   " because I'm a gangsta
 set nojoinspaces
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_auto_insert_bullets = 0
@@ -247,6 +211,11 @@ nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
 
+" =============================================================================
+" Bindings
+" =============================================================================
+map <C-n> :NERDTreeToggle<CR>
+
 
 " =============================================================================
 " # GUI settings
@@ -270,7 +239,6 @@ set diffopt+=indent-heuristic
 set colorcolumn=80 " and give me a colored column
 set showcmd " Show (partial) command in status line.
 set mouse=a " Enable mouse usage (all modes) in terminals
-set shortmess+=c " don't give |ins-completion-menu| messages.
 
 " Show those damn hidden characters
 " Verbose: set listchars=nbsp:¬,eol:¶,extends:»,precedes:«,trail:•
@@ -324,8 +292,8 @@ inoremap <left> <nop>
 inoremap <right> <nop>
 
 " Left and right can switch buffers
-nnoremap <left> :bp<CR>
-nnoremap <right> :bn<CR>
+nnoremap <C-h> :bp<CR>
+nnoremap <C-l> :bn<CR>
 
 " Move by line
 nnoremap j gj
