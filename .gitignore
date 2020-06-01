@@ -11,6 +11,7 @@
 Dev/*
 Documents/*
 Pictures/*
+Backups/*
 .local/share/nvim/*
 .local/state/*
 .Xauthority
