@@ -1,3 +1,4 @@
 #!/bin/dash
 # Scratch command bound to Mod+F1 and edited by Mod+Shift+F1.
-notify-send "Hey!"
+cd /home/evan/Dev/Repo/sdl && make && notify-send "Build complete!" && exit
+notify-send "Build failure!"
