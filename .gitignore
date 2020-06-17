@@ -8,6 +8,11 @@
 .config/QTProject.conf
 .config/dconf/*
 .config/wall
+.config/GIMP/
+.config/wall.png
+.config/gtk-2.0/gtkfilechooser.ini
+.cargo
+.rustup
 Dev/*
 Documents/*
 Pictures/*

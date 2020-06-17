@@ -1,6 +1,0 @@
-# GIMP gimp-by-color-select-tool options
-
-(threshold 24.5)
-(select-criterion lch-l)
-
-# end of gimp-by-color-select-tool options

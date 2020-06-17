@@ -1,4 +1,3 @@
 #!/bin/dash
 # Scratch command bound to Mod+F1 and edited by Mod+Shift+F1.
-cd /home/evan/Dev/Repo/sdl && make && notify-send "Build complete!" && exit
-notify-send "Build failure!"
+cd /home/evan/Dev/Repo/opengl-experiments && make && st -e ./bin/run && exit
