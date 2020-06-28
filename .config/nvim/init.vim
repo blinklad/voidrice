@@ -25,6 +25,7 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'chriskempson/base16-vim'
 " Fuzzy finder
 Plug 'junegunn/fzf.vim'
+Plug 'rust-lang/rust.vim'
 
 Plug 'airblade/vim-rooter'
 Plug 'autozimu/LanguageClient-neovim', {
@@ -35,6 +36,8 @@ Plug 'autozimu/LanguageClient-neovim', {
 " Syntactic language support
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'ziglang/zig.vim'
+
 call plug#end()
 
 set mouse=a
@@ -79,6 +82,15 @@ colorscheme base16-atlas
 " TODO.
 nnoremap <S-h> :ALEPrevious<CR>
 nnoremap <S-l> :ALENext<CR>
+nnoremap <S-f> :ALE
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_linters = {
+\   'c': ['ccls', 'clang', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder', 'gcc'],
+\}
+
+" directories and all files (default)
+let g:rooter_targets = '*.rs,*.c,*.md,*.latex,*.config'
+
 " =============================================================================
 "  Completion
 " =============================================================================
@@ -113,14 +125,15 @@ endif
 " Goyo plugin makes text more readable when writing prose:
 	map <leader>g :Goyo \| set bg=light \| set linebreak<CR>
 
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-	set splitbelow splitright
+" Better splits + resizing
+	set splitright
+	autocmd VimResized * wincmd =
 
 " Replace all is aliased to S.
 	nnoremap S :%s//g<Left><Left>
 
 " Compile document, be it groff/LaTeX/markdown/etc.
-nnoremap <leader>b :!compiler %<CR>
+	nnoremap <leader>b :!compiler %<CR>
 
 " Open corresponding .pdf/.html or preview
 	map <leader>p :!opout <c-r>%<CR><CR>
@@ -136,6 +149,7 @@ nnoremap <leader>b :!compiler %<CR>
 	autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 	autocmd BufRead,BufNewFile *.tex set filetype=tex
 	autocmd BufRead,BufNewFile *.rs set filetype=rust
+	autocmd BufRead,BufNewFile *.zig set filetype=zig
 
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
@@ -342,8 +356,13 @@ inoremap <leader><leader> <c-^>
 " =============================================================================
 "  Rust
 " =============================================================================
-autocmd FileType *.rs,.rs,rust nnoremap <leader>r :%! rustfmt<CR>
+autocmd FileType *.rs,.rs,rust nnoremap <leader>r :RustFmt<CR>
+autocmd FileType *.rs,.rs,rust nnoremap <leader>b :vertical terminal cargo run<CR>
 
+" =============================================================================
+"  Zig
+" =============================================================================
+autocmd FileType *.zig,.zig,zig nnoremap <S-B> :w<CR><C-W><C-L>:vertical terminal zig build run<CR><C-W><C-H>
 
 " =============================================================================
 "  HTML
