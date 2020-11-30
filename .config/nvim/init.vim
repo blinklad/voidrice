@@ -83,13 +83,16 @@ colorscheme base16-atlas
 nnoremap <S-h> :ALEPrevious<CR>
 nnoremap <S-l> :ALENext<CR>
 nnoremap <S-f> :ALE
+let g:ale_enabled = 0
 " In ~/.vim/vimrc, or somewhere similar.
-let g:ale_linters = {
-\   'c': ['ccls', 'clang', 'clangtidy', 'cppcheck', 'cquery', 'flawfinder', 'gcc'],
-\}
+" let g:ale_linters = {
+" \   'c': ['ccls',  'cppcheck', 'cquery', 'flawfinder', 'gcc'],
+" \   'cpp': ['ccls', 'cppcheck', 'cquery', 'flawfinder', 'gcc'],
+" \}
 
 " directories and all files (default)
-let g:rooter_targets = '*.rs,*.c,*.md,*.latex,*.config'
+let g:rooter_targets = '*.cpp,*.zig,*.rs,*.c,*.md,*.latex,*.config'
+let g:rooter_patterns = ['build.zig', 'Makefile', '.git/']
 
 " =============================================================================
 "  Completion
@@ -231,6 +234,9 @@ cnoremap %s/ %sm/
 " =============================================================================
 map <C-n> :NERDTreeToggle<CR>
 
+" Sane buffer write
+map <C-s> :w!<CR>
+
 
 " =============================================================================
 " # GUI settings
@@ -276,9 +282,14 @@ noremap <leader>c :w !xsel -ib<cr><cr>
 set clipboard=unnamedplus
 
 noremap <C-n> :NERDTreeToggle<CR>
+
+
 " <leader>s for Rg search
-noremap <leader>s :Rg<CR>
+" command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*|.zig-cache/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+nnoremap <leader>s :Rg<CR>
 let g:fzf_layout = { 'down': '~20%' }
+
+
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -342,6 +353,12 @@ inoremap <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 map 	 <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
 
+autocmd FileType c,cpp nnoremap <C-B> :w<CR><C-W><C-L>:!make clean<CR>:vertical terminal make <CR><C-W><C-H>
+autocmd FileType c,cpp nnoremap <C-E> <C-W><C-L>:vertical terminal make clean && make && make run <CR><C-W><C-H>
+
+" Clang-tidy
+nnoremap <C-f> :%!clang-format %<CR>
+
 " Comment style
 autocmd FileType *.c inoremap   <leader>C <Esc>i/*<++>*/<++><Esc>/<++><Enter>"_c4l
 autocmd FileType *.c inoremap <leader>f <CR>{<CR><++><CR>}<Esc>/<++><CR>c4l
@@ -352,6 +369,7 @@ autocmd FileType *.tex map <leader>b <Esc>:wall<CR>:Make<CR>
 " Navigating between buffers
 nnoremap <leader><leader> <c-^>
 inoremap <leader><leader> <c-^>
+
 
 " =============================================================================
 "  Rust
